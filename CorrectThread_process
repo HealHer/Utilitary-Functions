@@ -1,0 +1,40 @@
+from threading import Thread
+import queue as Queue
+import time
+
+class Tableau (Thread) : 
+    def __init__(self, queue) : 
+        Thread.__init__(self)
+        self.queue = queue 
+
+    def run (self) :
+        time.sleep(1)
+        print(self.queue.get())
+
+def thread_test (n) :
+
+    # ----------------------------
+    # Block 1 : Valeur de la queue
+    # ----------------------------
+    queue = Queue.Queue()
+    for i in range(n) :
+        queue.put(i)
+
+    # ----------------------------
+    # Block 2 : Création des Threads
+    # ----------------------------
+    listThreads = [] 
+    for i in range(n) :
+        thread = Tableau(queue)
+        listThreads.append(thread)
+        thread.start()
+
+    for sub in listThreads :
+        sub.join()
+        
+    # ----------------------------
+    # Block 3 : Commande de sortie
+    # ----------------------------
+    print("Test terminé")
+    
+thread_test(4)
