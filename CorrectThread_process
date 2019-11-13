@@ -3,20 +3,26 @@ import queue as Queue
 import time
 
 class Tableau (Thread) : 
+
     def __init__(self, queue) : 
+    
         Thread.__init__(self)
         self.queue = queue 
 
     def run (self) :
-        time.sleep(1)
-        
+    
         # ------------------------------------------------------
         # Condition d'arret pour le thread si la queue est vide 
         # ------------------------------------------------------
         if self.queue.empty() == True : 
             return self.queue.empty
 
+        # ------------------
+        # Action à faire
+        # ------------------
         print(self.queue.get())
+        time.sleep(1)
+        
 
 def thread_test (n) :
 
@@ -43,5 +49,6 @@ def thread_test (n) :
     # Block 3 : Commande de sortie
     # ----------------------------
     print("Test terminé")
-    
+
+
 thread_test(4)
