@@ -9,6 +9,13 @@ class Tableau (Thread) :
 
     def run (self) :
         time.sleep(1)
+        
+        # ------------------------------------------------------
+        # Condition d'arret pour le thread si la queue est vide 
+        # ------------------------------------------------------
+        if self.queue.empty() == True : 
+            return self.queue.empty
+
         print(self.queue.get())
 
 def thread_test (n) :
