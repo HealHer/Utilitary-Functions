@@ -36,14 +36,15 @@ def thread_test (n) :
     # ----------------------------
     # Block 2 : Création des Threads
     # ----------------------------
-    listThreads = [] 
-    for i in range(n) :
-        thread = Tableau(queue)
-        listThreads.append(thread)
-        thread.start()
+    while not queue.empty() : 
+        listThreads = [] 
+        for i in range(n) :
+            thread = Tableau(queue)
+            listThreads.append(thread)
+            thread.start()
 
-    for sub in listThreads :
-        sub.join()
+        for sub in listThreads :
+            sub.join()
         
     # ----------------------------
     # Block 3 : Commande de sortie
