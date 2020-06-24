@@ -48,7 +48,7 @@ def thread_test (n) :
             thread.start()
 
         for sub in listThreads :
-            metalist.extend(listThread)
+            metalist.append(sub)
             sub.join()
         
     # ----------------------------
