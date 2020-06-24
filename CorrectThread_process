@@ -26,6 +26,9 @@ class Tableau (Thread) :
 
 def thread_test (n) :
 
+    # Output : 
+    metalist = []
+    
     # ----------------------------
     # Block 1 : Valeur de la queue
     # ----------------------------
@@ -45,6 +48,7 @@ def thread_test (n) :
             thread.start()
 
         for sub in listThreads :
+            metalist.extend(listThread)
             sub.join()
         
     # ----------------------------
