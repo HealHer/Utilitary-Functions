@@ -1,0 +1,52 @@
+# Classic itterator 
+def itterator(n=3) : 
+    count = 0
+    while count < n : 
+        count += 1
+        yield count
+
+# Complexe itterator 
+def complexItterator() : 
+    count = 0
+    while True : 
+        count += 1 
+        yield count
+
+# Recreation de l'itteration 
+class Mon_itterator (object) : 
+    def __init__(self, n) : 
+        self.num = 0
+        self.n = n
+
+    def __iter__(self) : 
+        return self
+
+    def __next__(self) :  
+        return self.next()  
+
+    def next(self) :
+        if self.num < self.n :  
+            self.num += 1 
+            return self.num 
+        else : raise StopIteration() 
+
+# Recreation de l'itteration complexe
+class Mon_itterator_complexe (object) : 
+    def __init__(self) : 
+        self.num = 0
+
+    def __iter__(self) : 
+        return self
+
+    def __next__(self) :  
+        return self.next()  
+
+    def next(self) : 
+        print(self.num)
+        if self.num % 2 == 0 : 
+            print(self.num) 
+        self.num += 1 
+        return self.num 
+        
+# Test des itteration 
+if __name__ == "__main__" : print("Test en cours")
